@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>cn.tf.servlet.InitServlet</servlet-class>
+    <init-param>
+      <param-name>uploadPath</param-name>
+      <param-value>../path</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <filter>
+    <filter-name>ChartEncoderFilter</filter-name>
+    <filter-class>cn.tf.filter.ChartEncoderFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ChartEncoderFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>ClassesServlet</servlet-name>
+    <servlet-class>cn.tf.servlet.ClassesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClassesServlet</servlet-name>
+    <url-pattern>/servlet/ClassesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StudentServlet</servlet-name>
+    <servlet-class>cn.tf.servlet.StudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/servlet/StudentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BasicServlet</servlet-name>
+    <servlet-class>cn.tf.servlet.BasicServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BasicServlet</servlet-name>
+    <url-pattern>/servlet/BasicServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

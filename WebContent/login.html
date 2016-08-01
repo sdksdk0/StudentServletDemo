@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta  charset="UTF-8">
+<title>Insert title here</title>
+
+<script  type="text/javascript"  src="js/jquery-1.11.3.js"  ></script>
+
+</head>
+<script>
+	function userLogin(){
+		var uname=$.trim($("#uname").val());
+		var pwd=$.trim($("#pwd").val());
+		
+		
+		if(uname==""){
+			return ;
+		}
+		
+		if(pwd==""){
+			return ;
+		}
+		
+		$.post("servlet/StudentServlet",{op:"studentLogin",uname:uname,pwd:pwd},function(data){
+			data=parseInt($.trim(data));
+	
+			if(data==1){
+				$("#span").text("用户名不能为空").css("color","red");
+			}else if(data==2){
+				$("#span").text("用户名不能为空").css("color","red");
+			}else if(data==3){
+				location.href="show.jsp";
+			}else{
+				$("#span").text("用户名或密码错误").css("color","red");
+			}
+		});
+		
+	}
+
+
+
+</script>
+
+
+
+
+<body>
+
+<!-- 用户名为姓名，密码为学号 -->
+	<form  id="myform" >
+		用户名:<input type="text"  name="uname"  id="uname" />
+		密码:<input  type="password" name="pwd" id="pwd" />
+		
+		<input type="button" value="登录"  onclick="userLogin()"/>
+	</form>
+	<span id="span"></span>
+
+</body>
+</html>
